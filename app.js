@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
-
+var config = require("config");
 var productsRouter = require('./routes/products');
 
 var app = express();
@@ -37,7 +37,7 @@ app.use(function(err, req, res, next) {
 });
 
 mongoose 
-  .connect("mongodb://localhost/productscrudDB",
+  .connect(config.get("atlas"),
   {useNewUrlParser: true,
   useUnifiedTopology: true})
   .then(() => console.log("connected to mongo..."))
