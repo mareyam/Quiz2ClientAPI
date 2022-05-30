@@ -1,0 +1,24 @@
+extends ../layout
+
+block content 
+    .row 
+        .col-md-8   
+            h1=title
+        .col-md-4 
+            a(href="/products/add", class="btn btn-success") add new product 
+    table.table 
+        thead 
+
+        tbody   
+            each product in products 
+                tr 
+                    td=product.name
+                    td=product.price
+                    td
+                        a(href="/products/delete/"+product._id,class="btn btn-danger") Delete
+                        a(href="/products/edit/"+product._id,class="btn btn-warning") Edit 
+                       
+                         
+                         
+                    
+                    
